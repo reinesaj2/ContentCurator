@@ -10,7 +10,7 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f4f4f4;
+    background-color: #000000;
     padding: 20px;
 }
 
@@ -22,22 +22,30 @@ body {
 
 /* Hero Section */
 .hero-section {
-    background-color: #0052cc;
-    color: #ffffff;
-    padding: 60px 0;
-    text-align: center;
+    position: relative;
+    overflow: hidden; /* Ensures SVG animation stays within the hero section */
+    color: #ffffff; /* Adjust based on your design */
+    text-align: center; /* Centering the text content */
+    background: #000; /* Updated background to be stark black */
+    padding: 200px 0; /* Spacing around the content */
+    background-clip: padding-box; /* Background only applies to padding area */
 }
-
-.hero-section h1 {
-    margin-bottom: 20px;
-    font-size: 2.5rem;
+.hero-section .svg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Ensures SVG is behind the content */
 }
-
-.hero-section p {
-    margin-bottom: 20px;
-    font-size: 1.2rem;
+.container {
+    position: relative;
+    z-index: 1; /* Ensures text content is above the SVG */
+    background-image: url('path/to/your/image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
-
 .cta-button {
     display: inline-block;
     background-color: #ff4742;
@@ -200,8 +208,8 @@ footer {
 .tab-bar {
     display: flex;
     justify-content: center;
-    background-color: #ffffff;
-    border-bottom: 1px solid #ddd;
+    background-color: #000000;
+    /* border-bottom: 1px solid #ddd; */
     padding: 10px 0;
 }
 
@@ -221,7 +229,7 @@ footer {
 }
 
 .tab-bar button.active {
-    background-color: #0052cc;
+    background-color: #cc0000;
     color: #ffffff;
 }
 

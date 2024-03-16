@@ -18,13 +18,23 @@ def catalogue():
 
 @app.route('/posts')
 def list_posts():
-    """Endpoint to list all .txt files in the ExamplePosts directory."""
+    """
+    Endpoint to list all .txt files in the ExamplePosts directory.
+    This could be extended to include metadata for categorization if needed.
+    """
     posts = [f for f in os.listdir(POSTS_DIRECTORY) if f.endswith('.txt')]
     return jsonify(posts)
 
 @app.route('/posts/<filename>')
 def get_post(filename):
-    """Endpoint to serve individual .txt file content."""
+    """
+    Endpoint to serve individual .txt file content.
+    Ensure proper handling of non-existent files or directory traversal attacks.
+    """
+    # Validate filename to prevent directory traversal
+    if not filename.endswith('.txt') or '..' in filename or '/' in filename:
+        return "Invalid file name.", 400
+    # Serve the file if valid
     return send_from_directory(POSTS_DIRECTORY, filename)
 
 if __name__ == '__main__':
