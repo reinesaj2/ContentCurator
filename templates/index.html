@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI SocialBoost - Elevate Your Social Media Presence</title>
     <link rel="stylesheet" href="/css/styles.css">
-    <script src="/js/loadCatalogue.js"></script>
 </head>
 <body>
 
@@ -23,25 +22,22 @@
 
 <!-- Hero Section -->
 <header class="hero-section">
-    <div class="svg-container">
-        <script src="../js/heroAnimation.js"></script>
-        <object type="image/svg+xml" data="../images/SVG/Asset1.svg" id="animatedSVG" aria-label="Animated Flow"></object>
-    </div>
     <div class="container">
         <h1>Site name here</h1>
         <p>Transform social media content with the power of AI.</p>
         <a href="#pricing" class="cta-button">Get Started</a>
     </div>
+    <canvas id="canvas"></canvas>
+    </div>
 </header>
 
 <!-- Catalogue Subsection -->
 <div class="catalogue">
-        <p>Discover innovative marketing strategies with our AI-generated insights. <a href="/catalogue">View full catalogue</a>.</p>
+    <p>Discover innovative marketing strategies with our AI-generated insights. <a href="/catalogue">View full catalogue</a>.</p>
 </div>
 
-<script src="../js/loadCatalogue.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/MorphSVGPlugin.min.js"></script>
-<script src="../js/heroAnimation.js"></script>
+<!-- Custom Scripts -->
+<script src="{{ url_for('static', filename='js/loadCatalogue.js') }}"></script>
+<script src="{{ url_for('static', filename='js/heroAnimation.js') }}"></script>
 </body>
 </html>

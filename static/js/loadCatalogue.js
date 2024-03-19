@@ -1,6 +1,12 @@
 async function loadCatalogueItems() {
     const catalogueContainer = document.getElementById('catalogueGrid');
 
+    // Check if catalogueContainer exists before proceeding
+    if (!catalogueContainer) {
+        console.log('Catalogue container not found, skipping catalogue items loading.');
+        return; // Exit the function early if the element is not found
+    }
+
     try {
         const response = await fetch('/posts');
         const fileNames = await response.json();

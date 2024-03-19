@@ -24,12 +24,17 @@ body {
 .hero-section {
     position: relative;
     overflow: hidden; /* Ensures SVG animation stays within the hero section */
-    color: #ffffff; /* Adjust based on your design */
+    color: #ffffff; /* Text color */
     text-align: center; /* Centering the text content */
     background: #000; /* Updated background to be stark black */
-    padding: 200px 0; /* Spacing around the content */
-    background-clip: padding-box; /* Background only applies to padding area */
+    padding: 50px 0; /* Spacing around the content */
+    padding-bottom: 50px; /* Added padding under the content */
+    display: flex; /* Using flexbox to center the content vertically */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically */
 }
+
 .hero-section .svg-container {
     position: absolute;
     top: 0;
@@ -38,15 +43,13 @@ body {
     height: 100%;
     z-index: 0; /* Ensures SVG is behind the content */
 }
-.container {
+
+.hero-section .container {
     position: relative;
-    z-index: 1; /* Ensures text content is above the SVG */
-    background-image: url('path/to/your/image.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    z-index: 2; /* Ensure it's above the SVG */
 }
-.cta-button {
+
+.hero-section .cta-button {
     display: inline-block;
     background-color: #ff4742;
     color: #ffffff;
@@ -59,6 +62,25 @@ body {
 .cta-button:hover {
     background-color: #e63e30;
 }
+
+@keyframes fillChange {
+    0%, 100% {
+        fill: #edad1b;
+    }
+    25% {
+        fill: #ff0000; /* Red */
+    }
+    50% {
+        fill: #00ff00; /* Green */
+    }
+    75% {
+        fill: #0000ff; /* Blue */
+    }
+}
+  
+  .wave-animated {
+    animation: fillChange 5s infinite;
+  }  
 
 /* Features Section */
 .features-section {
